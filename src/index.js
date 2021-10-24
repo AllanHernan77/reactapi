@@ -3,15 +3,32 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {createStore, applyMiddleware} from 'redux'; // creating the globalized state
+import allReducers from './reducers'
+import {Provider} from 'react-redux'
+import thunk from "redux-thunk"
+//STORE -> globalized state
+
+//const composeEnchancer = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__ || compose
+
+let store  =createStore(allReducers, applyMiddleware(thunk))
+
+//ACTION  describes what you want to do
+
+
+//REDUCER how actions transforms state
+
+
+//DISPATCH dispatch the action to the reducer
+
+
+
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store = {store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

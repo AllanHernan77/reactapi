@@ -1,38 +1,103 @@
-.App {
-  text-align: center;
+body{
+  overflow-x: hidden;
+  
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Intro{
+  background:linear-gradient(rgba(0, 0, 0, 0.678), rgba(0, 0, 0, 0.219)), url(back.jpg);
+  background-size: cover;
+  height: 103vh;
+  margin: -2vh 0vh 0vh 0vh;
   display: flex;
-  flex-direction: column;
+}
+
+.TextWrap{
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  display: flex;
+  margin: -20vh 0vh 0vh 5vh;
+
+}
+
+.headerText{
+  color: #fff9f9;
+  font-size: 8vh;
+  font-family: 'Lato', sans-serif;
+   letter-spacing: 10px;
+  font-weight: bolder;
+
+
+}
+
+.subText{
   color: white;
+  margin: 40vh 0vh 0vh -67vh;
+  font-size: 2vh;
+
 }
 
-.App-link {
-  color: #61dafb;
+
+.propsContainer{
+  text-align: center;
+  height: 100vh;
+  justify-content: center;
+  background: #232526;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  margin: -4vh 0vh 0vh 0vh;
+  z-index: -1;
+ 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nameText{
+
+  font-size: 5vh;
+  color: white;
+  font-family: 'Lato', sans-serif;
+
+}
+
+
+button {
+  border-radius: 30px;
+  color: white;
+  font-size: 30px;
+  padding: 20px;
+  background: transparent;
+
+
+}
+button:hover {
+  border-color: green;
+  color: green;
+}
+
+
+.otherText{
+  color: white;
+  font-size: 3vh;
+
+  font-family: 'Lato', sans-serif;
+
+}
+
+hr{
+
+    width: 100vh;
+}
+
+mark{
+  background-color:#ffdd4b;
+}
+
+.myInput{
+  padding: 3vh;
+  height: 4vh;
+  width: 28vh;
+}
+
+.footer{
+  justify-content: space-evenly;
+  display: flex;
+  margin: 0vh 10vh 0vh 0vh;
 }
