@@ -1,27 +1,30 @@
+//Allan Hernandez || CSCI-310 || React API with Redux
+
 import './App.css';
 import React from 'react'
 import {connect} from "react-redux"
-import * as actions  from './actions'
+import * as actions  from './actions' // importing all actions 
 
 
 class App extends React.Component {
 
   state = {
-    searchelement: "",
-    profile : ""
+    searchelement: "", //state prop called searchelement for searching 
+    profile : "" 
   };
 
+  //search function, I could not implement it an easier way since I was not calling the API with async
   handleSearch(e){
     let test  = this.state.searchelement
     let text = document.getElementsByClassName("otherText")
     test = test.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
 
-    for (let key in text){
+    for (let key in text){ // traversing the <h> tags and their content
 
           if( (text[key].textContent) === undefined ){
             return
           }
-          if( (text[key].textContent).includes(test) ){
+          if( (text[key].textContent).includes(test) ){ // if the content includes the searchelement, then we will mark the instance of it. Caveats include it only finding one instance, and not being able to referesh the innerHTML
           text[key].innerHTML = text[key].textContent.replace(test, match => `<mark>${match}</mark>`)
           return
          }
@@ -31,10 +34,10 @@ class App extends React.Component {
     }
   }
 
-  settingState(){
-    setTimeout(() => { this.setState({profile:this.props.changeUserReducer})  }, 1000);
+  // settingState(){
+  //   setTimeout(() => { this.setState({profile:this.props.changeUserReducer})  }, 1000); 
     
-  }
+  // }
 
     render(){
    
@@ -50,7 +53,7 @@ class App extends React.Component {
               </div>
               
             </div>
-            <div className = "propsContainer">
+            <div className = "propsContainer"> {/* Props container is handling the props from the reducer where it is displaying all the info. I could have used maps which would had made the search function easier*/}
               
               <h1 className = "nameText"> { this.props.changeUserReducer.title + " " + this.props.changeUserReducer.firstName + " "  + this.props.changeUserReducer.lastName}  </h1>
 
@@ -75,11 +78,11 @@ class App extends React.Component {
 
               <hr></hr>
               <div className = "footer">
-                <button className = "test" onClick = {() =>  {  this.props.loadFirst(); this.settingState();  }  }   > Rebirth Your Identity!</button>
+                <button className = "test" onClick = {() =>  {  this.props.loadFirst();   }  }   > Rebirth Your Identity!</button> {/*calls the loadFirst() function which is in the action index file*/}
 
-                <input className = "myInput" type= "text" placeholder ="Enter Word to Search Here" onChange = {(e) => this.setState({searchelement:e.target.value})  }></input>
+                <input className = "myInput" type= "text" placeholder ="Enter Word to Search Here" onChange = {(e) => this.setState({searchelement:e.target.value})  }></input> {/* for every update their is in the entry field, update the state searchelement with the value */}
 
-                <button onClick = {() =>  {  this.handleSearch()  }  }> Click To Search</button>
+                <button onClick = {() =>  {  this.handleSearch()  }  }> Click To Search</button> {/* calls the search function*/}
               </div>
             </div>
     

@@ -1,3 +1,4 @@
+//inital state for the reducer
 let intialState = {
     person: "Jeff" 
 }
@@ -5,7 +6,7 @@ let intialState = {
 const changeUserReducer = (state = intialState , action) =>{
 
     switch(action.type){
-        case "CHANGE_USER":
+        case "CHANGE_USER": //when the action is CHANGE_USER, create an object that has all the elements of the human profile called from the API in actions.
             return {
                 title: action.user.name.title,
                 firstName: action.user.name.first,
